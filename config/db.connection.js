@@ -1,8 +1,9 @@
 const mongoose = require('mongoose');
 
-const connectionStr = process.env.MongoDB_URI
+const connectionStr = process.env.MONGODB_URI
 
-mongoose.connect(connectionStr + 'pen', {useNewUrlParser: true, autoIndex: true,});
+mongoose.connect(connectionStr, {useNewUrlParser: true,
+autoIndex: false, });
 
 //set up listener to monitor your database connection
 mongoose.connection.on('connected', ()=> console.log('db connected'));
