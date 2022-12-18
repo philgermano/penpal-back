@@ -17,7 +17,7 @@ const penSchema = new mongoose.Schema({
         type:String
     }
     
-})
+});
 
 const Pen = mongoose.model('Pen', penSchema)
 

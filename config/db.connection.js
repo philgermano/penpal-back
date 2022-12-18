@@ -2,8 +2,7 @@ const mongoose = require('mongoose');
 
 const connectionStr = process.env.MONGODB_URI
 
-mongoose.connect(connectionStr, {useNewUrlParser: true,
-autoIndex: false, });
+mongoose.connect(connectionStr, {useNewUrlParser: true});
 
 //set up listener to monitor your database connection
 mongoose.connection.on('connected', ()=> console.log('db connected'));

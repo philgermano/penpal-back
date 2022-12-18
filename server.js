@@ -1,20 +1,22 @@
 //external modules
 const express = require('express');
-
+const mongoose = require("mongoose");
 const cors = require('cors');
 require('dotenv').config();
 
 //whitelist and corsOptions 
-const whitelist = ['*']
+const whitelist = ['http://localhost:3000']
 const corsOptions = {
-    origin: function(origin, callback) {
-        // if (whitelist.indexOf(origin) !== -1) {
-        //     callback(null, true)
-        //   } else {
-        //     callback(new Error('Not allowed by CORS'))
-        //   }
-    callback(null, true)
+  origin: function (origin, callback) {
+    /*
+    if (whitelist.indexOf(origin) !== -1) {
+      callback(null, true)
+    } else {
+      callback(new Error('Not allowed by CORS'))
     }
+    */
+   callback(null, true)
+  }
 }
 
 //internal modules
@@ -36,7 +38,7 @@ app.use(express.urlencoded({extended:true}))
 
 
 //Routes
-app.use('/pen', routes.pen)
+app.use('/', routes.pen)
 
 app.listen(PORT, () =>{
     console.log('RUNNING ON PORT', PORT)

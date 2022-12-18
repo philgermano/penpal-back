@@ -1,8 +1,5 @@
 const db = require('../models');
 
-const express = require('express');
-const router = express.Router();
-
 //crud goes here
 const index = (req, res) =>{
     db.Pen.find({}, (error, pens) =>{
@@ -16,7 +13,7 @@ const index = (req, res) =>{
 }
 
 const create = (req, res) =>{
-    db.create(req.body, (error, createdPen) => {
+    db.Pen.create(req.body, (error, createdPen) => {
         if(error) return res.status(400).json({error:error.message});
 
         return res.status(200).json(createdPen)
